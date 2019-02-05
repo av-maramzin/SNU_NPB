@@ -78,6 +78,7 @@ double rhs    [KMAX][JMAXP+1][IMAXP+1][5];
 double forcing[KMAX][JMAXP+1][IMAXP+1][5];
 
 /* common /work_1d/ */
+#pragma omp threadprivate(cv,rhon,rhos,rhoq,cuf,q,ue,buf)
 double cv  [PROBLEM_SIZE];
 double rhon[PROBLEM_SIZE];
 double rhos[PROBLEM_SIZE];
@@ -86,13 +87,12 @@ double cuf [PROBLEM_SIZE];
 double q   [PROBLEM_SIZE];
 double ue [PROBLEM_SIZE][5];
 double buf[PROBLEM_SIZE][5];
-#pragma omp threadprivate(cv,rhon,rhos,rhoq,cuf,q,ue,buf)
 
 /* common /work_lhs/ */
+#pragma omp threadprivate(lhs,lhsp,lhsm)
 double lhs [IMAXP+1][IMAXP+1][5];
 double lhsp[IMAXP+1][IMAXP+1][5];
 double lhsm[IMAXP+1][IMAXP+1][5];
-#pragma omp threadprivate(lhs,lhsp,lhsm)
 
 
 int main(int argc, char *argv[])

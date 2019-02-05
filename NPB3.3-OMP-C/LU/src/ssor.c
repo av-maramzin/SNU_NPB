@@ -45,8 +45,8 @@
 /* common /threadinfo1/ */
 int isync[ISIZ2+1];
 /* common /threadinfo2/ */
-int mthreadnum, iam;
 #pragma omp threadprivate(mthreadnum,iam)
+int mthreadnum, iam;
 
 
 //---------------------------------------------------------------------

@@ -81,11 +81,11 @@ double u      [KMAX][JMAXP+1][IMAXP+1][5];
 double rhs    [KMAX][JMAXP+1][IMAXP+1][5];
 
 /* common /work_1d/ */
+#pragma omp threadprivate(cuf,q,ue,buf)
 double cuf[PROBLEM_SIZE+1];
 double q  [PROBLEM_SIZE+1];
 double ue [PROBLEM_SIZE+1][5];
 double buf[PROBLEM_SIZE+1][5];
-#pragma omp threadprivate(cuf,q,ue,buf)
 
 /* common /work_lhs/ */
 double fjac[PROBLEM_SIZE+1][5][5];
